@@ -36,3 +36,15 @@ const keys = keepKeys(person)
 keys[2] = 2
 keys.id = 'id'
 keys.name = 'name'
+
+const p3 = shapify(
+  {
+    ...keepKeys(person),
+    value: 'id',
+  },
+  person
+)
+
+p3.name.toLowerCase()
+p3.id--
+p3.value--
