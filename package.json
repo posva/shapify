@@ -2,7 +2,7 @@
   "name": "shapify",
   "version": "0.0.0",
   "main": "index.js",
-  "description": "",
+  "description": "Easily reshape objects",
   "author": {
     "name": "Eduardo San Martin Morote",
     "email": "posva13@gmail.com"
@@ -23,11 +23,13 @@
   ],
   "keywords": [
     "shape",
+    "reshape",
     "transform",
     "object",
     "keys",
     "adapt",
-    "rename"
+    "rename",
+    "functional"
   ],
   "license": "MIT",
   "repository": {
