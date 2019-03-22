@@ -1,4 +1,4 @@
-import shapify from './'
+import { shapify, keepKeys } from './'
 
 const person = {
   id: 5,
@@ -31,3 +31,8 @@ const p2 = shapify(
 
 p2.text.toLowerCase()
 p2.value--
+
+const keys = keepKeys(person)
+keys[2] = 2
+keys.id = 'id'
+keys.name = 'name'

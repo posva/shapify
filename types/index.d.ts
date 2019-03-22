@@ -15,4 +15,8 @@ declare function shapify<
     : (M[P] extends ValueMapper ? ReturnType<M[P]> : never))
 }
 
-export default shapify
+declare function keepKeys<T extends Record<RecordKey, any>, K extends keyof T>(
+  obj: T
+): { [P in K]: P }
+
+export { shapify, keepKeys }

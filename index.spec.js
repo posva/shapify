@@ -1,4 +1,4 @@
-const shapify = require('./index')
+const { shapify, keepKeys } = require('./index')
 
 describe('shapify', () => {
   it('renames properties', () => {
@@ -34,5 +34,25 @@ describe('shapify', () => {
   it('maps function from symbols too', () => {
     const s = Symbol('s')
     expect(shapify({ [s]: ({ n }) => n * 2 }, { n: 3 })).toEqual({ [s]: 6 })
+  })
+})
+
+describe('keepKeys', () => {
+  it('generates an object with keys as values', () => {
+    const s = Symbol('s')
+    expect(keepKeys({ [s]: true, a: 'foo', b: 'b' })).toEqual({
+      [s]: s,
+      a: 'a',
+      b: 'b',
+    })
+  })
+
+  it('can be used with shapify to keep keys', () => {
+    const o = { b: 'foo', other: true }
+    expect(shapify({ ...keepKeys(o), a: 'b' }, o)).toEqual({
+      a: 'foo',
+      b: 'foo',
+      other: true,
+    })
   })
 })
