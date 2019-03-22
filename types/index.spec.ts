@@ -5,7 +5,7 @@ const person = {
   name: 'Eduardo',
 }
 
-const option = shapify(
+const p1 = shapify(
   {
     value: 'id',
     text: 'name',
@@ -13,4 +13,16 @@ const option = shapify(
   person
 )
 
-option.text.toUpperCase()
+p1.text.toUpperCase()
+p1.value--
+
+const p2 = shapify(
+  {
+    value: ({ id }) => -id,
+    text: ({ name }) => name.toUpperCase(),
+  },
+  person
+)
+
+p2.text.toLowerCase()
+p2.value--
