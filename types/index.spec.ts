@@ -3,18 +3,23 @@ import shapify from './'
 const person = {
   id: 5,
   name: 'Eduardo',
+  2: 'foo',
 }
 
 const p1 = shapify(
   {
     value: 'id',
     text: 'name',
+    4: 'name',
+    other: 2,
   },
   person
 )
 
 p1.text.toUpperCase()
 p1.value--
+p1.other.toUpperCase()
+p1[4].toUpperCase()
 
 const p2 = shapify(
   {

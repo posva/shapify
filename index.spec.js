@@ -5,6 +5,14 @@ describe('shapify', () => {
     expect(shapify({ a: 'b' }, { b: 'foo' })).toEqual({ a: 'foo' })
   })
 
+  it('renames number properties', () => {
+    expect(shapify({ a: 3 }, { 3: 'foo' })).toEqual({ a: 'foo' })
+  })
+
+  it('creates number properties', () => {
+    expect(shapify({ 3: 'a' }, { a: 'foo' })).toEqual({ 3: 'foo' })
+  })
+
   it('skips non used properties by default', () => {
     expect(shapify({ a: 'b' }, { b: 'foo', other: true })).toEqual({ a: 'foo' })
   })
