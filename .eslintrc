@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "posva"
-  ],
+  "extends": ["posva"],
   "env": {
     "jest": true
   }
