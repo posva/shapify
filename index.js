@@ -1,4 +1,9 @@
 exports.shapify = (mapper, obj) => {
+  const mapperFunc = Array.isArray(mapper) ? arrayMapper : applyMapper
+  return mapperFunc(mapper, obj)
+}
+
+const applyMapper = (mapper, obj) => {
   const res = {}
   for (const newKey in mapper) {
     const keyOrFn = mapper[newKey]
@@ -12,6 +17,11 @@ exports.shapify = (mapper, obj) => {
   }
 
   return res
+}
+
+const arrayMapper = (keys, obj) => {
+  const mapper = keys.reduce((acc, key) => ({ ...acc, key }), {})
+  return applyMapper(mapper, obj)
 }
 
 exports.keepKeys = obj => {

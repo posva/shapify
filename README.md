@@ -79,6 +79,12 @@ If you need to keep original keys, you can provide a key with the same value:
 shapify({ id: 'id' }, users[0])
 ```
 
+You could simplify that by passing an array of strings as the first argument
+
+```js
+shapify(['id'], users[0])
+```
+
 But this would be the same as [`lodash.pick(users[0], ['id'])`](https://lodash.com/docs#pick).
 
 If you need to keep **all of the original keys**, there is a helper that you can use:
