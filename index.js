@@ -20,7 +20,7 @@ const applyMapper = (mapper, obj) => {
 }
 
 const arrayMapper = (keys, obj) => {
-  const mapper = keys.reduce((acc, key) => ({ ...acc, key }), {})
+  const mapper = keys.reduce((acc, key) => ({ ...acc, [key]: key }), {})
   return applyMapper(mapper, obj)
 }
 
