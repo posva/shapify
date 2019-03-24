@@ -47,7 +47,7 @@ This can be used to transform whole arrays of objects:
 
 ```js
 // create a function with the first parameter fixed
-const userShaper = shapify.bind(null, { text: 'fullname', value: 'id' })
+const userShaper = shapify.shaper({ text: 'fullname', value: 'id' })
 
 // generate the new array
 const userChoices = users.map(userShaper)

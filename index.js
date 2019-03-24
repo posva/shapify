@@ -14,6 +14,8 @@ exports.shapify = (mapper, obj) => {
   return res
 }
 
+exports.shaper = mapper => exports.shapify.bind(null, mapper)
+
 exports.keepKeys = obj => {
   const res = {}
   for (const key in obj) {
