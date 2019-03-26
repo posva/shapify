@@ -1,4 +1,4 @@
-const { shapify, keepKeys } = require('./index')
+const { shapify, shaper, keepKeys } = require('./index')
 
 describe('shapify', () => {
   it('renames properties', () => {
@@ -34,6 +34,13 @@ describe('shapify', () => {
   it('maps function from symbols too', () => {
     const s = Symbol('s')
     expect(shapify({ [s]: ({ n }) => n * 2 }, { n: 3 })).toEqual({ [s]: 6 })
+  })
+
+  it('shaper transforms array map', () => {
+    const testShaper = shaper({ c: 'a', d: 'b' })
+    expect([{ a: 'oldANewC', b: 'oldBNewD' }]
+      .map(testShaper))
+      .toEqual([{ c: 'oldANewC', d: 'oldBNewD' }])
   })
 })
 
