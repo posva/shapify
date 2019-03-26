@@ -35,13 +35,6 @@ describe('shapify', () => {
     const s = Symbol('s')
     expect(shapify({ [s]: ({ n }) => n * 2 }, { n: 3 })).toEqual({ [s]: 6 })
   })
-
-  it('shaper transforms array map', () => {
-    const testShaper = shaper({ c: 'a', d: 'b' })
-    expect([{ a: 'oldANewC', b: 'oldBNewD' }]
-      .map(testShaper))
-      .toEqual([{ c: 'oldANewC', d: 'oldBNewD' }])
-  })
 })
 
 describe('keepKeys', () => {
@@ -61,5 +54,14 @@ describe('keepKeys', () => {
       b: 'foo',
       other: true,
     })
+  })
+})
+
+describe('shaper', () => {
+  it('shaper maps the correct values to the new keys', () => {
+    const testShaper = shaper({ c: 'a', d: 'b' })
+    expect([{ a: 'oldANewC', b: 'oldBNewD' }]
+      .map(testShaper))
+      .toEqual([{ c: 'oldANewC', d: 'oldBNewD' }])
   })
 })
