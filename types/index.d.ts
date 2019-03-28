@@ -14,6 +14,11 @@ declare function shapify<
     ? T[M[P]] // I don't understand why I have to create a nested ternary
     : (M[P] extends ValueMapper ? ReturnType<M[P]> : never))
 }
+declare function shapify<
+  T extends Record<RecordKey, any>,
+  K extends keyof T,
+  Keys extends Array<K>
+>(keys: Keys, obj: T): { [P in K]: T[P] }
 
 declare function keepKeys<T extends Record<RecordKey, any>, K extends keyof T>(
   obj: T
