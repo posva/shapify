@@ -1,10 +1,15 @@
 exports.shapify = (mapper, obj) => {
-  const mapperFunc = Array.isArray(mapper) ? arrayMapper : applyMapper
-  return mapperFunc(mapper, obj)
-}
-
-const applyMapper = (mapper, obj) => {
   const res = {}
+
+  if (Array.isArray(mapper)) {
+    for (const i in mapper) {
+      const key = mapper[i]
+      res[key] = obj[key]
+    }
+    // no need to check for symbols
+    return res
+  }
+
   for (const newKey in mapper) {
     const keyOrFn = mapper[newKey]
     res[newKey] = typeof keyOrFn === 'function' ? keyOrFn(obj) : obj[keyOrFn]
@@ -17,11 +22,6 @@ const applyMapper = (mapper, obj) => {
   }
 
   return res
-}
-
-const arrayMapper = (keys, obj) => {
-  const mapper = keys.reduce((acc, key) => ({ ...acc, [key]: key }), {})
-  return applyMapper(mapper, obj)
 }
 
 exports.keepKeys = obj => {
