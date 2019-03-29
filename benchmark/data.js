@@ -35,6 +35,10 @@ exports.mediumObject = buildObject(15)
 exports.largeObject = buildObject(200)
 exports.veryLargeObject = buildObject(1000)
 
-exports.fewPropertiesArray = buildArray(3)
+exports.fewPropertiesArray = buildArray(2)
 exports.somePropertiesArray = buildArray(5)
-exports.manyPropertiesArray = buildArray(50)
+exports.manyPropertiesArray = buildArray(15)
+
+exports.fewPropertiesObject = buildObject(2)
+exports.somePropertiesObject = buildObject(5)
+exports.manyPropertiesObject = buildObject(15)

@@ -2,8 +2,8 @@ exports.shapify = (mapper, obj) => {
   const res = {}
 
   if (Array.isArray(mapper)) {
-    for (const i in mapper) {
-      const key = mapper[i]
+    // forof seems to be as fast as a for i
+    for (const key of mapper) {
       res[key] = obj[key]
     }
     // no need to check for symbols
