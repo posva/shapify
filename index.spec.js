@@ -1,4 +1,4 @@
-const { shapify, keepKeys } = require('./index')
+const { shapify, shaper, keepKeys } = require('./index')
 
 describe('shapify', () => {
   it('renames properties', () => {
@@ -76,5 +76,14 @@ describe('keepKeys', () => {
       b: 'foo',
       other: true,
     })
+  })
+})
+
+describe('shaper', () => {
+  it('shaper maps the correct values to the new keys', () => {
+    const testShaper = shaper({ c: 'a', d: 'b' })
+    expect([{ a: 'oldANewC', b: 'oldBNewD' }]
+      .map(testShaper))
+      .toEqual([{ c: 'oldANewC', d: 'oldBNewD' }])
   })
 })
