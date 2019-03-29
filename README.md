@@ -49,6 +49,8 @@ This can be used to transform whole arrays of objects:
 import { shapify, shaper } from 'shapify'
 // create a function with the first parameter fixed
 const userShaper = shaper({ text: 'fullname', value: 'id' })
+// equivalent to
+const sameUserShaper = shapify.bind(null, { text: 'fullname', value: 'id' })
 
 // generate the new array
 const userChoices = users.map(userShaper)
