@@ -56,6 +56,8 @@ const sameUserShaper = shapify.bind(null, { text: 'fullname', value: 'id' })
 const userChoices = users.map(userShaper)
 ```
 
+**⚠️: (#3) this breaks typings (mark them as `unknown`), if you know how to make it work, please file a PR**
+
 ### Customizing the new value
 
 If you want to customize the value instead of just using the original one, you can provide a function:

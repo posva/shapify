@@ -1,4 +1,4 @@
-import { shapify, keepKeys } from './'
+import { shapify, keepKeys, shaper } from './'
 
 const symbol = Symbol('symbol')
 const s2 = Symbol('symbol2')
@@ -59,6 +59,24 @@ p3.value--
 
 const p4 = shapify(['id', 'name', 2, symbol], person)
 
-p4[2]
-p4.id
-p4.name
+p4[2].toUpperCase()
+p4.id = 4
+p4.name.toUpperCase()
+p4[symbol].nested.toLowerCase()
+
+// TODO: uncomment when implemented types for shaper
+// TODO: add tests with functions
+const shape = { n: 'id', other: 'name', 3: 2, [s2]: symbol }
+const personShaper = shaper(shape)
+
+// const p6 = personShaper(person)
+// p6[3].toUpperCase()
+// p6.n = 5
+// p6.other.toLowerCase()
+// p6[s2].nested.toLowerCase()
+
+// const p5 = shaper(['id', 'name', 2, symbol])(person)
+// p5[2]
+// p5.id
+// p5.name
+// p5[symbol]
