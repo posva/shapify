@@ -79,13 +79,13 @@ If you need to keep original keys, you can provide a key with the same value:
 shapify({ id: 'id' }, users[0])
 ```
 
-You could simplify that by passing an array of strings as the first argument
+But a more appropriate syntax is an array of keys (strings, numbers or symbols):
 
 ```js
-shapify(['id'], users[0])
+shapify(['id', 'fullname'], users[0])
 ```
 
-But this would be the same as [`lodash.pick(users[0], ['id'])`](https://lodash.com/docs#pick).
+This is similar to [`lodash.pick(users[0], ['id', 'fullname'])`](https://lodash.com/docs#pick). However, because shapify is type safe, it cannot support paths as strings as `lodash.pick` does. Instead you need to use a function.
 
 If you need to keep **all of the original keys**, there is a helper that you can use:
 
