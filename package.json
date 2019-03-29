@@ -43,19 +43,15 @@
   "devDependencies": {
     "benchmark": "^2.1.4",
     "codecov": "^3.2.0",
-    "eslint": "^5.15.1",
+    "eslint": "^5.15.3",
     "eslint-config-posva": "^2.0.3",
-    "jest": "^24.1.0",
-    "typescript": "^3.3.3333"
+    "jest": "^24.5.0",
+    "typescript": "^3.3.4000"
   },
   "jest": {
     "testEnvironment": "node",
-    "watchPlugins": [
-      "./benchmark/jest-plugin.js"
-    ],
     "testMatch": [
-      "<rootDir>/*.spec.js",
-      "<rootDir>/benchmark/*.bench.js"
+      "<rootDir>/*.spec.js"
     ]
   }
 }
