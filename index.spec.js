@@ -36,8 +36,26 @@ describe('shapify', () => {
     expect(shapify({ [s]: ({ n }) => n * 2 }, { n: 3 })).toEqual({ [s]: 6 })
   })
 
-  it('Filters properties when passing array of strings as the mapper', () => {
-    expect(shapify(['a', 'b'], { a: 'a', b: 'b', c: 'c' })).toEqual({ a: 'a', b: 'b' })
+  it('supports an array of strings', () => {
+    expect(shapify(['a', 'b'], { a: 'a', b: 'b', c: 'c' })).toEqual({
+      a: 'a',
+      b: 'b',
+    })
+  })
+
+  it('supports an array with numbers', () => {
+    expect(shapify([2, 'b'], { 2: 'a', b: 'b', c: 'c' })).toEqual({
+      2: 'a',
+      b: 'b',
+    })
+  })
+
+  it('supports an array with symbols', () => {
+    const s = Symbol('s')
+    expect(shapify([s, 'b'], { [s]: 'a', b: 'b', c: 'c' })).toEqual({
+      [s]: 'a',
+      b: 'b',
+    })
   })
 })
 
