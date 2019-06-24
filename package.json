@@ -43,7 +43,7 @@
   "devDependencies": {
     "benchmark": "^2.1.4",
     "codecov": "^3.2.0",
-    "eslint": "^5.15.3",
+    "eslint": "^6.0.0",
     "eslint-config-posva": "^2.0.3",
     "jest": "^24.5.0",
     "typescript": "^3.3.4000"
