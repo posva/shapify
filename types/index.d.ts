@@ -9,15 +9,16 @@ declare function shapify<
   mapper: M,
   obj: T
 ): {
-  [P in keyof M]: (M[P] extends K
+  [P in keyof M]: M[P] extends K
     ? T[M[P]] // I don't understand why I have to create a nested ternary
-    : (M[P] extends ((obj: T) => any) ? ReturnType<M[P]> : never))
+    : M[P] extends (obj: T) => any
+    ? ReturnType<M[P]>
+    : never
 }
-declare function shapify<
-  T extends Record<RecordKey, any>,
-  K extends keyof T,
-  Keys extends Array<K>
->(keys: Keys, obj: T): { [P in K]: T[P] }
+declare function shapify<T extends Record<RecordKey, any>, K extends keyof T>(
+  keys: K[],
+  obj: T
+): { [P in K]: T[P] }
 
 // TODO: make it work
 declare function shaper<
@@ -26,9 +27,11 @@ declare function shaper<
   mapper: M
 ): {
   <T extends Record<RecordKey, any>, K extends keyof T>(obj: T): {
-    [P in keyof M]: (M[P] extends K
+    [P in keyof M]: M[P] extends K
       ? T[M[P]] // I don't understand why I have to create a nested ternary
-      : (M[P] extends ((obj: T) => any) ? ReturnType<M[P]> : unknown))
+      : M[P] extends (obj: T) => any
+      ? ReturnType<M[P]>
+      : unknown
   }
 }
 // declare function shaper(mapper: Record<RecordKey, RecordKey | (obj: any) => any>) : any

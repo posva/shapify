@@ -45,7 +45,7 @@
     "codecov": "^3.2.0",
     "eslint": "^6.0.1",
     "eslint-config-posva": "^3.0.1",
-    "jest": "^25.1.0",
+    "jest": "^25.2.1",
     "typescript": "^3.3.4000"
   },
   "jest": {
