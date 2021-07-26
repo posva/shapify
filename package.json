@@ -42,7 +42,7 @@
   "homepage": "https://github.com/posva/shapify#readme",
   "devDependencies": {
     "benchmark": "^2.1.4",
-    "codecov": "^3.8.2",
+    "codecov": "^3.8.3",
     "eslint": "^7.31.0",
     "eslint-config-posva": "^3.0.3",
     "jest": "^27.0.6",
